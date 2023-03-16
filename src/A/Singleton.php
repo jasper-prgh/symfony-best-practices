@@ -10,7 +10,7 @@ class Singleton {
 
     public int $number = 0;
 
-    public function __construct() {
+    private function __construct() {
 
     }
 

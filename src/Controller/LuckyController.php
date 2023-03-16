@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\A\A;
-use App\A\Singleton;
 use App\Pipeline\Payload;
 use App\Pipeline\PipelineService;
 use App\Pipeline\Steps\Step1;
@@ -13,8 +12,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class LuckyController extends AbstractController
 {
-
-    // UNIT TESTING
     private int $age = 13;
 
     public function __construct(
@@ -35,9 +32,6 @@ class LuckyController extends AbstractController
             Step1::class,
         ], $payload);
 
-        echo $payload->getNumber();
-        die();
-
         if (!$this->isAdultRule->appliesTo($this->age)) {
             return $this->json([
                 'data' => [
@@ -48,7 +42,7 @@ class LuckyController extends AbstractController
 
         return $this->json([
             'data' => [
-                'number' => $this->a->a(),
+                'number' => $this->a->a() + $payload->getNumber(),
             ]
         ]);
     }
