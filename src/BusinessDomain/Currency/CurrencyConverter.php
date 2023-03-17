@@ -2,14 +2,21 @@
 
 namespace App\BusinessDomain\Currency;
 use App\BusinessDomain\Currency\ConverterStrategy\ConverterStrategy;
+use App\BusinessDomain\Observer\Observable;
 
-class CurrencyConverter {
+class CurrencyConverter extends Observable {
 
     public function __construct(
         private ConverterStrategy $converterStrategy,
     ) {}
 
     public function convert(float $usd): float {
-        return $this->converterStrategy->convert($usd);
-    }   
+        $converted = $this->converterStrategy->convert($usd);
+        $this->notify();
+        return $converted;
+    }
+
+    public function getStrategy(): ConverterStrategy {
+        return $this->converterStrategy;
+    }
 }

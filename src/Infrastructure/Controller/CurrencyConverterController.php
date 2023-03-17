@@ -3,6 +3,8 @@
 namespace App\Infrastructure\Controller;
 
 use App\BusinessDomain\Currency\CurrencyConverterFactory;
+use App\BusinessDomain\Currency\CurrencyLoggingObserver;
+use App\BusinessDomain\Currency\Observer;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,6 +21,7 @@ class CurrencyConverterController extends AbstractController {
 
         try {
             $converter = $this->currencyConverterFactory->buildByCountryCode($countryCode);
+            $converter->attachObserver(new CurrencyLoggingObserver());
         } catch (Exception $e) {
             return $this->json(['error' => 'Converting failed']);
         }
