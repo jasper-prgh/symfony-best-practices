@@ -7,3 +7,7 @@ controllers:
 app_lucky_number:
     path: /lucky/number
     controller: App\Controller\LuckyController::number
+
+currency_convert:
+    path: /currency/converter/{countryCode}
+    controller: App\Controller\CurrencyConverterController::convert
