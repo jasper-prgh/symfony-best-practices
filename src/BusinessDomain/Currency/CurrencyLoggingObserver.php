@@ -3,8 +3,9 @@
 namespace App\BusinessDomain\Currency;
 
 use App\BusinessDomain\Observer\Event;
+use App\BusinessDomain\Observer\Observer;
 
-class CurrencyLoggingObserver implements \App\BusinessDomain\Observer\Observer {
+class CurrencyLoggingObserver implements Observer {
 
     public function update(Event $event) {
         /** @var CurrencyConverter $observable */
