@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Pipeline;
+namespace App\BusinessDomain\Pipeline;
 
-use App\Pipeline\Steps\Step;
+use App\BusinessDomain\Pipeline\Steps\Step;
 
 class PipelineService {
 

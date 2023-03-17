@@ -1,6 +1,6 @@
 <?php
 
-namespace App\A;
+namespace App\BusinessDomain\A;
 
 // insures that during the runtime of an app, only 1 obj of a specific type exists.
 

@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Controller;
+namespace App\Infrastructure\Controller;
 
-use App\A\A;
-use App\Pipeline\Payload;
-use App\Pipeline\PipelineService;
-use App\Pipeline\Steps\Step1;
-use App\Rule\IsAdultRule;
+use App\BusinessDomain\A\A;
+use App\BusinessDomain\Pipeline\Payload;
+use App\BusinessDomain\Pipeline\PipelineService;
+use App\BusinessDomain\Pipeline\Steps\Step1;
+use App\BusinessDomain\Rule\IsAdultRule;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 
 class LuckyController extends AbstractController
 {
-    private int $age = 13;
+    private int $age = 19;
 
     public function __construct(
         private A $a,

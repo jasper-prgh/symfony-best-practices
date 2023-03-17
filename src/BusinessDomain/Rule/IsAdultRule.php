@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Rule;
+namespace App\BusinessDomain\Rule;
 
 class IsAdultRule {
 

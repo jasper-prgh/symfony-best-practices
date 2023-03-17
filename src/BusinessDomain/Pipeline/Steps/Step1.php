@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Pipeline\Steps;
-use App\Pipeline\Payload;
+namespace App\BusinessDomain\Pipeline\Steps;
+use App\BusinessDomain\Pipeline\Payload;
 
 class Step1 implements Step {
 

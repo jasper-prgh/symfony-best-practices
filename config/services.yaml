@@ -12,8 +12,8 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    App\Controller\LuckyController:
+    App\Infrastructure\Controller\LuckyController:
         autowire: true
 
-    App\Controller\CurrencyConverterController:
+    App\Infrastructure\Controller\CurrencyConverterController:
         autowire: true

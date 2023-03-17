@@ -1,10 +1,10 @@
 <?php
 
-namespace App\A;
+namespace App\BusinessDomain\A;
 
 class A {
     public function a() {
-        $h = 76 + 6;
+        $h = 76 + 82;
         return $h;
     }
 

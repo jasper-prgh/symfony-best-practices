@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Rule\Test;
+namespace App\BusinessDomain\Rule\Test;
 
-use App\Rule\IsAdultRule;
+use App\BusinessDomain\Rule\IsAdultRule;
 use PHPUnit\Framework\TestCase;
 
 class IsAdultRuleTest extends TestCase {

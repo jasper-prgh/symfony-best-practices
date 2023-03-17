@@ -1,6 +1,6 @@
 <?php
 
-namespace App\A;
+namespace App\BusinessDomain\A;
 use PHPUnit\Framework\TestCase;
 
 class ATest extends TestCase {

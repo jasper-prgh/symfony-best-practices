@@ -1,10 +1,7 @@
 <?php
 
-namespace App\Controller;
+namespace App\Infrastructure\Controller;
 
-use App\BusinessDomain\Currency\ConverterStrategy\EuroConverterStrategy;
-use App\BusinessDomain\Currency\ConverterStrategy\RupeesConverterStrategy;
-use App\BusinessDomain\Currency\CurrencyConverter;
 use App\BusinessDomain\Currency\CurrencyConverterFactory;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

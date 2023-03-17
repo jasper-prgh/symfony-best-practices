@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Pipeline;
+namespace App\BusinessDomain\Pipeline;
 
 class Payload {
     private int $number = 0;
