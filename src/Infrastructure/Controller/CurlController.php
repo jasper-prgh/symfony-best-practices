@@ -23,6 +23,6 @@ class CurlController extends AbstractController {
             ])
             ->doRequest();
 
-        return $this->json(['result' => $result2]);
+        return $this->json(['result' => json_decode($result)]);
     }
 }
