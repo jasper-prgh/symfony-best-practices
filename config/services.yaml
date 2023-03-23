@@ -17,3 +17,6 @@ services:
 
     App\Infrastructure\Controller\CurrencyConverterController:
         autowire: true
+
+    App\BusinessDomain\World\Query\Handler\GetCountryByCodeQueryHandler:
+        autowire: true

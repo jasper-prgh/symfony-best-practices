@@ -9,7 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
 class City
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
@@ -21,6 +20,10 @@ class City
 
     #[ORM\Column(length: 244)]
     private ?string $district = null;
+
+    #[ORM\ManyToOne(inversedBy: 'cities')]
+    #[ORM\JoinColumn(name: 'country_code', referencedColumnName: 'code')]
+    private ?Country $country = null;
 
     public function getId(): ?int
     {
@@ -59,6 +62,18 @@ class City
     public function setDistrict(string $district): self
     {
         $this->district = $district;
+
+        return $this;
+    }
+
+    public function getCountry(): ?Country
+    {
+        return $this->country;
+    }
+
+    public function setCountry(?Country $country): self
+    {
+        $this->country = $country;
 
         return $this;
     }

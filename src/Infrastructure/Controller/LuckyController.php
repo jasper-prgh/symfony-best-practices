@@ -7,6 +7,8 @@ use App\BusinessDomain\Pipeline\Payload;
 use App\BusinessDomain\Pipeline\PipelineService;
 use App\BusinessDomain\Pipeline\Steps\Step1;
 use App\BusinessDomain\Rule\IsAdultRule;
+use App\BusinessDomain\World\Query\GetCountryByCodeQuery;
+use App\BusinessDomain\World\Query\Handler\GetCountryByCodeQueryHandler;
 use App\Repository\CityRepository;
 use App\Repository\CountryRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,23 +26,12 @@ class LuckyController extends AbstractController
         private CountryRepository $countryRepository,
         private CityRepository $cityRepository,
         private EntityManagerInterface $entityManager,
+        private GetCountryByCodeQueryHandler $getCountryByCodeQueryHandler,
     ) {}
 
     public function number(): Response
     {
-
-        $country = $this->countryRepository->find('ABW');
-        $cities = $this->cityRepository->findBy(['countryCode' => 'ABW']);
-
-        $country->setName('AAruba');
-
-        $this->entityManager->persist($country);
-        $this->entityManager->flush();
-
-        $cs = [];
-        foreach ($cities as $city) {
-            $cs[] = $city->getName();
-        }
+        $country = $this->getCountryByCodeQueryHandler->handle(new GetCountryByCodeQuery('ABW'));
 
         $payload = new Payload();
         $this->pipelineService->run([
@@ -64,7 +55,6 @@ class LuckyController extends AbstractController
             'data' => [
                 'number' => $this->a->a() + $payload->getNumber(),
                 'country' => $country->getName(),
-                'cities' => $cs,
             ]
         ]);
     }

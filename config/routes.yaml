@@ -11,3 +11,7 @@ app_lucky_number:
 currency_convert:
     path: /currency/converter/{countryCode}
     controller: App\Infrastructure\Controller\CurrencyConverterController::convert
+
+curl_get:
+    path: /curl/get
+    controller: App\Infrastructure\Controller\CurlController::get
